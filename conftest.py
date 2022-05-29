@@ -22,7 +22,7 @@ def browser(request):
         options.add_experimental_option('prefs', {'intl.accept_languages': select_language})
         browser = webdriver.Chrome(options=options)
     else:
-        raise pytest.UsageError("--language should be es or fr")
+        raise pytest.UsageError("--language should be en or fr")
     yield browser
     print("\nquit browser..")
     browser.quit()
