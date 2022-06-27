@@ -26,4 +26,3 @@ class LoginPage(BasePage):
                                                                                     "not presented "
         assert self.is_element_present(*LoginPageLocators.REGISTRATION_PASSWORD_2), "Registration repeat password " \
                                                                                     "field is not presented"
-
