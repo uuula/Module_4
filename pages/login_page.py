@@ -26,3 +26,17 @@ class LoginPage(BasePage):
                                                                                     "not presented "
         assert self.is_element_present(*LoginPageLocators.REGISTRATION_PASSWORD_2), "Registration repeat password " \
                                                                                     "field is not presented"
+
+    def register_new_user(self, email, password):
+
+        registration_email_field = self.browser.find_element(*LoginPageLocators.REGISTRATION_EMAIL)
+        registration_email_field.send_keys(email)
+
+        registration_password_field_1 = self.browser.find_element(*LoginPageLocators.REGISTRATION_PASSWORD_1)
+        registration_password_field_1.send_keys(password)
+
+        registration_password_field_2 = self.browser.find_element(*LoginPageLocators.REGISTRATION_PASSWORD_2)
+        registration_password_field_2.send_keys(password)
+
+        registration_button = self.browser.find_element(*LoginPageLocators.REGISTRATION_BUTTON)
+        registration_button.click()

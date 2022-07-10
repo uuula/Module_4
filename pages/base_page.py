@@ -68,3 +68,7 @@ class BasePage():
         link.click()
         current_url = self.browser.current_url
         assert "basket" in current_url, "There is no 'basket' substring in the current browser url"
+
+    def should_be_authorized_user(self):
+        assert self.is_element_present(*BasePageLocators.USER_ICON), "User icon is not presented," \
+                                                                     " probably unauthorised user"
