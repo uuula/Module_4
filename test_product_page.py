@@ -91,7 +91,7 @@ class TestUserAddToBasketFromProductPage():
         page.register_new_user(email=email, password=password)
         page.should_be_authorized_user()
 
-    def test_user_cant_see_success_message(browser):
+    def test_user_cant_see_success_message(self, browser):
         link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/coders-at-work_207/"
         page = MainPage(browser,
                         link)  # инициализируем Page Object, передаём в конструктор экземпляр драйвера и url адрес
@@ -99,11 +99,10 @@ class TestUserAddToBasketFromProductPage():
         product_page = ProductPage(browser, browser.current_url)
         product_page.should_not_be_success_message()
 
-    def test_user_can_add_product_to_basket(browser, link):
-        # link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=newYear2019"
-        page = MainPage(browser,
-                        link)  # инициализируем Page Object, передаём в конструктор экземпляр драйвера и url адрес
-        page.open()  # открываем страницу
+    def test_user_can_add_product_to_basket(self, browser):
+        link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=newYear2019"
+        page = MainPage(browser, link)
+        page.open()
         product_page = ProductPage(browser, browser.current_url)
         product_page.should_add_product_to_cart()
         product_page.should_product_name_in_cart_and_message_are_the_same()

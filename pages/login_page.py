@@ -28,7 +28,6 @@ class LoginPage(BasePage):
                                                                                     "field is not presented"
 
     def register_new_user(self, email, password):
-
         registration_email_field = self.browser.find_element(*LoginPageLocators.REGISTRATION_EMAIL)
         registration_email_field.send_keys(email)
 
